@@ -12,6 +12,10 @@
   .popover-panel {
     @apply w-[300px] p-4 bg-fb-header rounded-lg shadow-lg absolute right-0 top-12 border border-fb-input lg:w-[360px];
   }
+
+  .card {
+    @apply rounded-lg mt-4 px-4 py-3 bg-fb-card;
+  }
 }
 
 

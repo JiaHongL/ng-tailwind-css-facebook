@@ -328,7 +328,7 @@
       </div>
 
       <!-- 在想些什麼？ -->
-      <div class="rounded-lg mt-4 px-4 py-3 bg-fb-card">
+      <div class="card">
 
         <div class="flex pb-4">
           <div
@@ -365,6 +365,62 @@
             <p class="text-gray-400 text-sm pl-1.5">感受／活動</p>
           </button>
         </div>
+      </div>
+
+      <!-- 開包廂 -->
+      <div class="card pr-0 flex">
+
+        <div class="swiper-container fb-live overflow-hidden relative">
+          <div class="swiper-wrapper" id="swiper-wrapper-live">
+            <swiper
+            #swiper
+            class="py-2"
+            [config]="config"
+            >
+
+              <ng-template swiperSlide>
+                <button
+                  class="
+                    mr-4
+                    px-4
+                    h-[40px]
+                    ring-2 ring-gray-600
+                    flex
+                    items-center
+                    rounded-full
+                    focus:outline-none
+                  "
+                >
+                  <div class="w-[24px]">
+                    <img
+                      src="https://bruce-fe-fb.web.app/image/video.svg"
+                      alt=""
+                    />
+                  </div>
+                  <p class="ml-2 text-fb text-sm font-bold">建立包廂</p>
+                </button>
+              </ng-template>
+
+              <ng-container *ngFor="let item of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]">
+                <ng-template swiperSlide>
+                  <div class="w-[55px]">
+                    <div class="relative w-[40px] cursor-pointer">
+                      <div class="overflow-hidden rounded-full">
+                        <img src="https://bruce-fe-fb.web.app/image/avator.png" alt="">
+                      </div>
+                      <div class="w-[10px] h-[10px] rounded-full bg-green-500 absolute bottom-0 right-0 ring-gray-900 ring"></div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-container>
+
+            </swiper>
+
+          </div>
+          <div class="swiper-button-next absolute top-4 right-0 z-20" (click)="slidePrev()"></div>
+          <div class="swiper-button-prev absolute top-4 left-0 z-20"  (click)="slideNext()"></div>
+        </div>
+
       </div>
 
   </div>

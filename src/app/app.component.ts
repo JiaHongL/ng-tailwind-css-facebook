@@ -1,4 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { SwiperComponent } from 'swiper/angular';
+import { SwiperOptions } from 'swiper/types/swiper-options';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,21 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  @ViewChild('swiper', { static: false }) swiper!: SwiperComponent;
+
   @HostListener('window:click', ['$event']) click(event: MouseEvent): void {
     this.activePanel = null;
   }
+
+  config: SwiperOptions = {
+    loop: false,
+    navigation:{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    slidesPerView: 'auto'
+  };
 
   hoverIndex: number | null = null;
 
@@ -92,4 +106,13 @@ export class AppComponent {
   stopPropagation(event: any): void {
     event.stopPropagation();
   }
+
+  slidePrev(){
+    this.swiper.swiperRef.slideNext(100);
+  }
+
+  slideNext(){
+    this.swiper.swiperRef.slidePrev(100);
+  }
+
 }
